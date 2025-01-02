@@ -28,8 +28,8 @@ std::vector<std::string> generateRandomData(int size) {
     return data;
 }
 
-// Brute Force Sort
-SortResult bruteForceSortWithTime(std::vector<std::string> arr) {
+// Brute Force Strategy
+SortResult bruteForceStrategyWithTime(std::vector<std::string> arr) {
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<std::string> data = arr;
     std::vector<std::string> sortedData;
@@ -45,8 +45,8 @@ SortResult bruteForceSortWithTime(std::vector<std::string> arr) {
     return {sortedData, time};
 }
 
-// Greedy Sort (Selection Sort)
-SortResult greedySortWithTime(std::vector<std::string> arr) {
+// Greedy Strategy (Selection Sort)
+SortResult greedyStrategyWithTime(std::vector<std::string> arr) {
     auto start = std::chrono::high_resolution_clock::now();
     std::vector<std::string> data = arr;
     
@@ -180,8 +180,8 @@ int main() {
     std::vector<std::vector<std::string>> sortedResults(5);
     
     for (int i = 0; i < iterations; i++) {
-        auto bruteResult = bruteForceSortWithTime(originalData);
-        auto greedyResult = greedySortWithTime(originalData);
+        auto bruteResult = bruteForceStrategyWithTime(originalData);
+        auto greedyResult = greedyStrategyWithTime(originalData);
         auto bubbleResult = bubbleSortWithTime(originalData);
         auto insertionResult = insertionSortWithTime(originalData);
         auto mergeResult = mergeSortWithTime(originalData);
@@ -211,7 +211,7 @@ int main() {
     
     for (size_t i = 0; i < algorithmNames.size(); i++) {
         std::cout << std::fixed << std::setprecision(3);
-        std::cout << algorithmNames[i] << " Sort:\n";
+        std::cout << algorithmNames[i] << " Strategy:\n";
         std::cout << "Average Time: " << avgTimes[i]/iterations << " ms\n";
         printData(sortedResults[i], "Sorted Data");
     }
